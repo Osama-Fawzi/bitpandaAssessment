@@ -11,8 +11,9 @@ class ListBaseViewModel {
 
     var tableViewDelegate: TableViewDelegate?
     var tableViewDataSource: TableViewDataSource?
-    lazy var navigationBarDelegate = NavigationBarDelegate()
     lazy var sections: [ListSection] = []
+
+    lazy var navigationBarDelegate = NavigationBarDelegate()
 
     func prepareTableViewSections(category: Any) {
         Mirror(reflecting: category).children.forEach { child in

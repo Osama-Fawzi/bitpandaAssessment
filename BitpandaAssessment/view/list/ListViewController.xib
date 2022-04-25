@@ -27,9 +27,7 @@
                         <constraint firstAttribute="height" constant="44" id="DrE-kp-OTP"/>
                     </constraints>
                     <items>
-                        <navigationItem title="Title" id="oG6-K0-hXl">
-                            <barButtonItem key="rightBarButtonItem" title="Item" image="wallet.pass" catalog="system" id="tFd-0B-syP"/>
-                        </navigationItem>
+                        <navigationItem title="Title" id="oG6-K0-hXl"/>
                     </items>
                 </navigationBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uhJ-e1-4ZD">
@@ -52,7 +50,6 @@
         </view>
     </objects>
     <resources>
-        <image name="wallet.pass" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,7 +16,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
 
-    lazy var filterDropDown = DropDown()
+    lazy var filterDropDown: DropDown? = nil
     lazy var generator = UINotificationFeedbackGenerator()
 
     override func viewDidLoad() {
@@ -79,18 +79,19 @@ extension ListViewController {
 
         let filterBtn = createNavBarItem()
 
-        filterDropDown.textColor = .systemBlack!
-        filterDropDown.backgroundColor = .systemWhite
-        filterDropDown.anchorView = filterBtn
-        filterDropDown.dataSource = viewModel.sections.map({ $0.type.rawValue })
-        filterDropDown.bottomOffset =  CGPoint(x: 0, y: navigationBar.frame.height)
+        filterDropDown = DropDown()
+        filterDropDown?.textColor = .systemBlack!
+        filterDropDown?.backgroundColor = .systemWhite
+        filterDropDown?.anchorView = filterBtn
+        filterDropDown?.dataSource = viewModel.sections.map({ $0.type.rawValue })
+        filterDropDown?.bottomOffset =  CGPoint(x: 0, y: navigationBar.frame.height)
 
         let filterSelectionAction: MultiSelectionClosure = { [weak self] (indices, options) in
             guard let self = self else { return }
             viewModel.filterDidChange(indices: indices, options: options)
             self.tableView.reloadData()
         }
-        filterDropDown.multiSelectionAction = filterSelectionAction
+        filterDropDown?.multiSelectionAction = filterSelectionAction
     }
 
     func createNavBarItem() -> UIBarButtonItem {
@@ -115,7 +116,15 @@ extension ListViewController {
 // MARK: - Filter Actions
     @objc
     func filterAction() {
-        filterDropDown.show()
+        let animations: (()->Void) = { [weak self] in
+            self?.filterDropDown?.show()
+        }
+
+        UIView.transition(with: filterDropDown!,
+                          duration: 0.5,
+                          options: .transitionFlipFromBottom,
+                          animations: animations,
+                          completion: nil)
     }
 }
 
@@ -153,7 +162,7 @@ extension ListViewController {
 extension ListViewController {
 
     typealias FeedBackType =  UINotificationFeedbackGenerator.FeedbackType
-    
+
     enum HapticType {
         case show
         case dismiss
