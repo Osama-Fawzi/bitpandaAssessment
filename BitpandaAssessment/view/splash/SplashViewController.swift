@@ -21,9 +21,7 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Coordinator.shared.showAsset()
-
-//        writeInChars("bitpanda")
+        writeInChars("bitpanda")
     }
     
     private func writeInChars(_ text: String) {

@@ -9,23 +9,32 @@ import Foundation
 import UIKit
 
 protocol ListViewModelInterface {
+    var shouldToast: Bool { get }
     var tableViewDelegate: TableViewDelegate? { get }
     var tableViewDataSource: TableViewDataSource? { get }
+    var sections: [ListSection] { get set }
     var navigationBarDelegate: NavigationBarDelegate  { get }
-    var filterDidChange: (()->())? { get set }
+    var hasFilter: Bool { get }
 
-    func setupNavigationItem() -> [UINavigationItem]
     func setupTableViewDataSource()
     func setupTableViewDelgate()
-    func setupFilterDataSource()
-    func setupFilterDelegate()
+    func setupNavigationItem() -> [UINavigationItem]
+    func filterDidChange(indices: [Int], options: [String])
+
 }
 
 extension ListViewModelInterface {
+    var shouldToast: Bool {
+        return false
+    }
+    var hasFilter: Bool {
+        return false
+    }
     var navigationItem: [UINavigationItem] {
         setupNavigationItem()
     }
 
-    func setupFilterDataSource() {}
-    func setupFilterDelegate() {}
+    func filterDidChange(indices: [Int], options: [String]) {
+
+    }
 }

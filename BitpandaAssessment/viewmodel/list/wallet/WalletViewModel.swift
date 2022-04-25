@@ -8,29 +8,6 @@
 import Foundation
 import UIKit
 
-class ListBaseViewModel {
-
-    var tableViewDelegate: TableViewDelegate?
-    var tableViewDataSource: TableViewDataSource?
-    lazy var navigationBarDelegate = NavigationBarDelegate()
-    lazy var sections: [ListSection] = []
-
-    var filterDidChange: (()->())?
-
-    func prepareTableViewSections(category: Any) {
-        Mirror(reflecting: category).children.forEach { child in
-            if let asset = child.value as? [ItemInterface],
-               let type = asset.first?.type {
-
-                let viewModels = asset.map({ item -> ItemCellViewModel in
-                    ItemCellViewModel(item: item)
-                })
-                sections.append(ListSection(type: type, items: viewModels))
-            }
-        }
-    }
-}
-
 class WalletViewModel: ListBaseViewModel {
 
     private var assets: AssetsGroup
@@ -79,9 +56,12 @@ class WalletViewModel: ListBaseViewModel {
 }
 
 extension WalletViewModel: ListViewModelInterface {
+
+    var shouldToast: Bool {
+        return false
+    }
+
     func setupNavigationItem() -> [UINavigationItem] {
-
-
         let backAction = #selector(backAction)
         let backButton = UIBarButtonItem(title: "Dismiss",
                                          style: .plain,

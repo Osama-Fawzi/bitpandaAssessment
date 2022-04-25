@@ -39,6 +39,10 @@
 		4A85C9152815B5F100961E76 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85C9142815B5F100961E76 /* WalletViewModel.swift */; };
 		4A85C9182815BFB800961E76 /* UIImage+sd_webImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */; };
 		4A85C91B2815E03E00961E76 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85C91A2815E03E00961E76 /* Section.swift */; };
+		4AF7456628172208007769C5 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7456528172208007769C5 /* UIImage+GIF.swift */; };
+		4AF7456E28172A96007769C5 /* shake_dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7456C28172A96007769C5 /* shake_dark.gif */; };
+		4AF7456F28172A96007769C5 /* shake_white.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7456D28172A96007769C5 /* shake_white.gif */; };
+		4AF7457128174A6B007769C5 /* ListBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7457028174A6B007769C5 /* ListBaseViewModel.swift */; };
 		4CC078EC066E51B807D458C3 /* Pods_BitpandaAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21A2B95F30C2806AA2D140F /* Pods_BitpandaAssessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +81,10 @@
 		4A85C9142815B5F100961E76 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+sd_webImage.swift"; sourceTree = "<group>"; };
 		4A85C91A2815E03E00961E76 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		4AF7456528172208007769C5 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		4AF7456C28172A96007769C5 /* shake_dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_dark.gif; sourceTree = "<group>"; };
+		4AF7456D28172A96007769C5 /* shake_white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_white.gif; sourceTree = "<group>"; };
+		4AF7457028174A6B007769C5 /* ListBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewModel.swift; sourceTree = "<group>"; };
 		90053C6DBE9DD0D6070C33F1 /* Pods-BitpandaAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaAssessment.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaAssessment/Pods-BitpandaAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		AC7766713AB9835693CE9577 /* Pods-BitpandaAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaAssessment.release.xcconfig"; path = "Target Support Files/Pods-BitpandaAssessment/Pods-BitpandaAssessment.release.xcconfig"; sourceTree = "<group>"; };
 		D21A2B95F30C2806AA2D140F /* Pods_BitpandaAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitpandaAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +174,7 @@
 		4A85C8CE2813CBE400961E76 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				4AF7456728172251007769C5 /* GIF */,
 				4A85C8EA281467AD00961E76 /* mock */,
 				4A85C8BA2813AFCF00961E76 /* Info.plist */,
 				4A85C8B52813AFCF00961E76 /* Assets.xcassets */,
@@ -186,14 +195,14 @@
 			isa = PBXGroup;
 			children = (
 				4A85C9022815947F00961E76 /* itemcell */,
-				4A85C8D72813DCCF00961E76 /* utilities */,
+				4A85C8D72813DCCF00961E76 /* listUtilities */,
 				4A85C8DD28143E8400961E76 /* asset */,
 				4A85C8DC28143E7900961E76 /* wallet */,
 			);
 			path = list;
 			sourceTree = "<group>";
 		};
-		4A85C8D72813DCCF00961E76 /* utilities */ = {
+		4A85C8D72813DCCF00961E76 /* listUtilities */ = {
 			isa = PBXGroup;
 			children = (
 				4A85C91A2815E03E00961E76 /* Section.swift */,
@@ -201,8 +210,9 @@
 				4A85C8DA2813DCE700961E76 /* TableViewDelegate.swift */,
 				4A85C8DE28143EB900961E76 /* NavigationBarDelegate.swift */,
 				4A85C8E0281440D600961E76 /* ListViewModelInterface.swift */,
+				4AF7457028174A6B007769C5 /* ListBaseViewModel.swift */,
 			);
-			path = utilities;
+			path = listUtilities;
 			sourceTree = "<group>";
 		};
 		4A85C8DC28143E7900961E76 /* wallet */ = {
@@ -255,6 +265,7 @@
 				4A85C8F628147CDA00961E76 /* Helper.swift */,
 				4A85C8F8281485B000961E76 /* String+Currancy.swift */,
 				4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */,
+				4AF7456528172208007769C5 /* UIImage+GIF.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -302,6 +313,15 @@
 				4A85C9122815AAFF00961E76 /* FiatWallet.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		4AF7456728172251007769C5 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				4AF7456C28172A96007769C5 /* shake_dark.gif */,
+				4AF7456D28172A96007769C5 /* shake_white.gif */,
+			);
+			path = GIF;
 			sourceTree = "<group>";
 		};
 		C7CDF4A577F50BB1BAC115B3 /* Pods */ = {
@@ -384,10 +404,12 @@
 			files = (
 				4A85C8B92813AFCF00961E76 /* LaunchScreen.storyboard in Resources */,
 				4A85C8EC281467D800961E76 /* Mastrerdata.json in Resources */,
+				4AF7456E28172A96007769C5 /* shake_dark.gif in Resources */,
 				4A85C90128158EF300961E76 /* ItemCell.xib in Resources */,
 				4A85C8B62813AFCF00961E76 /* Assets.xcassets in Resources */,
 				4A85C8D32813DAD200961E76 /* ListViewController.xib in Resources */,
 				4A85C8CA2813C6C600961E76 /* SplashViewController.xib in Resources */,
+				4AF7456F28172A96007769C5 /* shake_white.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,8 +490,10 @@
 				4A85C91B2815E03E00961E76 /* Section.swift in Sources */,
 				4A85C9102815AADA00961E76 /* CommodityWallet.swift in Sources */,
 				4A85C9182815BFB800961E76 /* UIImage+sd_webImage.swift in Sources */,
+				4AF7456628172208007769C5 /* UIImage+GIF.swift in Sources */,
 				4A85C8DB2813DCE700961E76 /* TableViewDelegate.swift in Sources */,
 				4A85C8C32813C5EB00961E76 /* Coordinator.swift in Sources */,
+				4AF7457128174A6B007769C5 /* ListBaseViewModel.swift in Sources */,
 				4A85C8E92814678000961E76 /* DataProvider.swift in Sources */,
 				4A85C8D22813DAD200961E76 /* ListViewController.swift in Sources */,
 				4A85C90028158EF300961E76 /* ItemCell.swift in Sources */,

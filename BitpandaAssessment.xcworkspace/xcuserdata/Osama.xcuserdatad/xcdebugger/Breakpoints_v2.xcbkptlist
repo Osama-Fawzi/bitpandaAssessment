@@ -103,16 +103,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FBA93823-CED5-4E30-BD7D-FF0D8A5C1F03"
+            uuid = "516E55B4-2E68-41D1-B026-CEE0BCD6F03E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BitpandaAssessment/view/list/ListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "motionEnded(_:with:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "setupFilterDropDown()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,4 +8,5 @@ target 'BitpandaAssessment' do
   pod 'DropDown'
   pod 'SDWebImage'
   pod 'SDWebImageSVGCoder'
+  pod 'Toast-Swift'
 end

@@ -14,7 +14,7 @@ protocol ItemCellInterface {
 }
 
 class ItemCell: UITableViewCell, ItemCellInterface {
-
+    
     var viewModel: ItemCellViewModelInterface?
 
     static var identifer: String {
