@@ -40,9 +40,9 @@
 		4A85C9182815BFB800961E76 /* UIImage+sd_webImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */; };
 		4A85C91B2815E03E00961E76 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85C91A2815E03E00961E76 /* Section.swift */; };
 		4AF7456628172208007769C5 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7456528172208007769C5 /* UIImage+GIF.swift */; };
-		4AF7456E28172A96007769C5 /* shake_dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7456C28172A96007769C5 /* shake_dark.gif */; };
-		4AF7456F28172A96007769C5 /* shake_white.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7456D28172A96007769C5 /* shake_white.gif */; };
 		4AF7457128174A6B007769C5 /* ListBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7457028174A6B007769C5 /* ListBaseViewModel.swift */; };
+		4AF7457528175EF9007769C5 /* shake_white.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7457328175EF9007769C5 /* shake_white.gif */; };
+		4AF7457628175EF9007769C5 /* shake_dark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7457428175EF9007769C5 /* shake_dark.gif */; };
 		4CC078EC066E51B807D458C3 /* Pods_BitpandaAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21A2B95F30C2806AA2D140F /* Pods_BitpandaAssessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,9 +82,9 @@
 		4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+sd_webImage.swift"; sourceTree = "<group>"; };
 		4A85C91A2815E03E00961E76 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		4AF7456528172208007769C5 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
-		4AF7456C28172A96007769C5 /* shake_dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_dark.gif; sourceTree = "<group>"; };
-		4AF7456D28172A96007769C5 /* shake_white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_white.gif; sourceTree = "<group>"; };
 		4AF7457028174A6B007769C5 /* ListBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewModel.swift; sourceTree = "<group>"; };
+		4AF7457328175EF9007769C5 /* shake_white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_white.gif; sourceTree = "<group>"; };
+		4AF7457428175EF9007769C5 /* shake_dark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shake_dark.gif; sourceTree = "<group>"; };
 		90053C6DBE9DD0D6070C33F1 /* Pods-BitpandaAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaAssessment.debug.xcconfig"; path = "Target Support Files/Pods-BitpandaAssessment/Pods-BitpandaAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		AC7766713AB9835693CE9577 /* Pods-BitpandaAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitpandaAssessment.release.xcconfig"; path = "Target Support Files/Pods-BitpandaAssessment/Pods-BitpandaAssessment.release.xcconfig"; sourceTree = "<group>"; };
 		D21A2B95F30C2806AA2D140F /* Pods_BitpandaAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitpandaAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,7 +174,7 @@
 		4A85C8CE2813CBE400961E76 /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				4AF7456728172251007769C5 /* GIF */,
+				4AF7457228175EB7007769C5 /* gif */,
 				4A85C8EA281467AD00961E76 /* mock */,
 				4A85C8BA2813AFCF00961E76 /* Info.plist */,
 				4A85C8B52813AFCF00961E76 /* Assets.xcassets */,
@@ -315,13 +315,13 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
-		4AF7456728172251007769C5 /* GIF */ = {
+		4AF7457228175EB7007769C5 /* gif */ = {
 			isa = PBXGroup;
 			children = (
-				4AF7456C28172A96007769C5 /* shake_dark.gif */,
-				4AF7456D28172A96007769C5 /* shake_white.gif */,
+				4AF7457428175EF9007769C5 /* shake_dark.gif */,
+				4AF7457328175EF9007769C5 /* shake_white.gif */,
 			);
-			path = GIF;
+			path = gif;
 			sourceTree = "<group>";
 		};
 		C7CDF4A577F50BB1BAC115B3 /* Pods */ = {
@@ -404,12 +404,12 @@
 			files = (
 				4A85C8B92813AFCF00961E76 /* LaunchScreen.storyboard in Resources */,
 				4A85C8EC281467D800961E76 /* Mastrerdata.json in Resources */,
-				4AF7456E28172A96007769C5 /* shake_dark.gif in Resources */,
 				4A85C90128158EF300961E76 /* ItemCell.xib in Resources */,
 				4A85C8B62813AFCF00961E76 /* Assets.xcassets in Resources */,
 				4A85C8D32813DAD200961E76 /* ListViewController.xib in Resources */,
 				4A85C8CA2813C6C600961E76 /* SplashViewController.xib in Resources */,
-				4AF7456F28172A96007769C5 /* shake_white.gif in Resources */,
+				4AF7457528175EF9007769C5 /* shake_white.gif in Resources */,
+				4AF7457628175EF9007769C5 /* shake_dark.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

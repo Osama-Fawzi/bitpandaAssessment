@@ -39,7 +39,7 @@ class SplashViewController: UIViewController {
         }
         UIView.transition(with: label,
                           duration: writingduration,
-                          options: .transitionFlipFromTop,
+                          options: .transitionCrossDissolve,
                           animations: animations,
                           completion: onComplete)
     }
