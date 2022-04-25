@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="ItemCell" customModule="BitpandaAssessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-q0-6Vi">
+                        <rect key="frame" x="15" y="5" width="289" height="65"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Vnf-vQ-FEL">
+                                <rect key="frame" x="5" y="15" width="85.5" height="35"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kuX-8k-bgm">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kuX-8k-bgm" secondAttribute="height" multiplier="1:1" id="2R4-80-9UG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBU-6I-boP">
+                                        <rect key="frame" x="44" y="0.0" width="41.5" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nV2-2u-GzQ">
+                                <rect key="frame" x="237.5" y="22.5" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nV2-2u-GzQ" firstAttribute="centerY" secondItem="hRx-q0-6Vi" secondAttribute="centerY" id="DE9-Ec-M7D"/>
+                            <constraint firstAttribute="trailing" secondItem="nV2-2u-GzQ" secondAttribute="trailing" constant="10" id="I4I-cH-Xyu"/>
+                            <constraint firstAttribute="bottom" secondItem="Vnf-vQ-FEL" secondAttribute="bottom" constant="15" id="K7F-iq-VA2"/>
+                            <constraint firstItem="Vnf-vQ-FEL" firstAttribute="leading" secondItem="hRx-q0-6Vi" secondAttribute="leading" constant="5" id="Ksf-XV-6Bs"/>
+                            <constraint firstItem="Vnf-vQ-FEL" firstAttribute="top" secondItem="hRx-q0-6Vi" secondAttribute="top" constant="15" id="dp2-hu-PuF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hRx-q0-6Vi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="AvY-ep-0EK"/>
+                    <constraint firstAttribute="bottom" secondItem="hRx-q0-6Vi" secondAttribute="bottom" constant="5" id="Bgg-u8-Bpw"/>
+                    <constraint firstItem="hRx-q0-6Vi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="q8z-Kq-GOM"/>
+                    <constraint firstAttribute="trailing" secondItem="hRx-q0-6Vi" secondAttribute="trailing" constant="15" id="tPF-NS-BmO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="cardView" destination="hRx-q0-6Vi" id="oRJ-wY-Ul5"/>
+                <outlet property="icon" destination="kuX-8k-bgm" id="uYk-56-miT"/>
+                <outlet property="number" destination="nV2-2u-GzQ" id="odB-PG-7K7"/>
+                <outlet property="title" destination="iBU-6I-boP" id="VvH-dK-6eF"/>
+            </connections>
+            <point key="canvasLocation" x="-39.855072463768117" y="-9.7098214285714288"/>
+        </tableViewCell>
+    </objects>
+</document>
