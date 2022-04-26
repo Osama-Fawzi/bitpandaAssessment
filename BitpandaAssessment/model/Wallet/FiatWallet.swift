@@ -46,6 +46,10 @@ extension FiatWallet: ItemInterface {
         return "\(attributes.name)(\(attributes.symbol))"
     }
 
+    var numberValue: Double {
+        return Double(attributes.balance) ?? 0.0
+    }
+
     var number: String? {
         return attributes.balance
     }

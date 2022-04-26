@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class WalletViewModel {
-    var tableViewDelegate: TableViewDelegate?
-    var tableViewDataSource: TableViewDataSource?
+    private(set) var tableViewDelegate: TableViewDelegate?
+    private(set) var tableViewDataSource: TableViewDataSource?
     lazy var sections: [ListSection] = []
     private var assets: AssetsGroup
     private var wallets: WalletsGroup
 
-    lazy var navigationBarDelegate = NavigationBarDelegate()
+    private(set) lazy var navigationBarDelegate = NavigationBarDelegate()
 
     init(dataProvider: DataProviderInterface) {
         do {
@@ -31,7 +31,7 @@ class WalletViewModel {
         setupTableViewDataSource()
     }
 
-    private func prepareModels() {
+    func prepareModels() {
         wallets.cryptocoinWallets = wallets.cryptocoinWallets.filter { item in
             let cryptocoin = assets.cryptocoins.first(where: {$0.id == item.attributes.cryptocoinID})
             item.attributes.logo = cryptocoin?.attributes.logo

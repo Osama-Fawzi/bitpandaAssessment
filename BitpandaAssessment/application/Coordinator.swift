@@ -14,7 +14,15 @@ class Coordinator {
     public var lastParentVC: UIViewController?
 
     func start() {
-        showIntro()
+        let skipTo = ProcessInfo.processInfo.environment["SKIP_SPLASH_TO"]
+        if skipTo == "Asset" {
+            showAsset()
+        } else if skipTo == "Wallet" {
+            showAsset()
+            showWallet()
+        } else {
+            showIntro()
+        }
     }
     
     func showIntro() {
@@ -22,18 +30,28 @@ class Coordinator {
         setRootViewController(vc)
     }
 
-    func showAsset() {
+    func showAsset(isRoot: Bool = true) {
         let dp = DataProvider()
         let vm = AssetViewModel(dataProvider: dp)
         let vc = ListViewController(viewModel: vm)
-        setRootViewController(vc, animated: true)
+
+        if isRoot {
+            setRootViewController(vc, animated: true)
+        } else {
+            show(vc, into: topViewController()!)
+        }
     }
 
-    func showWallet() {
+    func showWallet(isRoot: Bool = false) {
         let dp = DataProvider()
         let vm = WalletViewModel(dataProvider: dp)
         let vc = ListViewController(viewModel: vm)
-        show(vc, into: topViewController()!)
+
+        if isRoot {
+            setRootViewController(vc, animated: true)
+        } else {
+            show(vc, into: topViewController()!)
+        }
     }
     
     func pop(_ viewController: UIViewController) {

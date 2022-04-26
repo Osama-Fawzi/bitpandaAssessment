@@ -47,6 +47,10 @@ extension Fiat: ItemInterface {
         return "\(attributes.name)(\(attributes.symbol))"
     }
 
+    var numberValue: Double {
+        return 0.0
+    }
+
     var number: String? {
         return nil
     }

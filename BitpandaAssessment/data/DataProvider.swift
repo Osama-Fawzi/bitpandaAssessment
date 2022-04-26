@@ -15,7 +15,7 @@ protocol DataProviderInterface {
 }
 
 class DataProvider {
-    private let fileName = "Mastrerdata"
+    private let fileName = Bundle.main.fileName
 }
 
 extension DataProvider: DataProviderInterface {

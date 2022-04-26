@@ -12,10 +12,11 @@ protocol ItemInterface {
     var type: ItemType { get }
     var icon: String { get }
     var title: String { get }
+    var numberValue: Double { get }
     var number: String? { get }
 }
 
-enum ItemType: String, Codable {
+enum ItemType: String, Codable, CaseIterable {
     case cryptocoin
     case commodity
     case fiat

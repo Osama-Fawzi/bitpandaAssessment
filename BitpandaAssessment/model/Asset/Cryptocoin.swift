@@ -13,6 +13,11 @@ class Cryptocoin: Codable {
         return .cryptocoin
     }
 
+    init(id: String, attributes: Attributes) {
+        self.id = id
+        self.attributes = attributes
+    }
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey:.id)
@@ -56,6 +61,10 @@ extension Cryptocoin: ItemInterface {
 
     var title: String {
         return "\(attributes.name)(\(attributes.symbol))"
+    }
+
+    var numberValue: Double {
+        return Double(attributes.avgPrice) ?? 0.0
     }
 
     var number: String? {

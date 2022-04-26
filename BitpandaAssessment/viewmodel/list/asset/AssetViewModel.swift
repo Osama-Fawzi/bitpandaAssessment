@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 class AssetViewModel {
-    var tableViewDelegate: TableViewDelegate?
-    var tableViewDataSource: TableViewDataSource?
+    private(set) var tableViewDelegate: TableViewDelegate?
+    private(set) var tableViewDataSource: TableViewDataSource?
     lazy var sections: [ListSection] = []
     private var assets: AssetsGroup
 
-    lazy var navigationBarDelegate = NavigationBarDelegate()
+    private(set) lazy var navigationBarDelegate = NavigationBarDelegate()
 
     init(dataProvider: DataProviderInterface) {
         do {
@@ -28,7 +28,7 @@ class AssetViewModel {
         setupTableViewDataSource()
     }
 
-    private func prepareModels() {
+    func prepareModels() {
         assets.fiats = assets.fiats.filter({ $0.attributes.hasWallets })
     }
 }

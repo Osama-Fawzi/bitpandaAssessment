@@ -16,8 +16,8 @@ class ListViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
 
-    var filterDropDown: DropDown?
-    lazy var generator = UINotificationFeedbackGenerator()
+    private var filterDropDown: DropDown?
+    private lazy var generator = UINotificationFeedbackGenerator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class ListViewController: UIViewController {
         style.titleColor = .systemBlack!
         style.messageColor = .systemBlack!
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
             view.makeToast("Show/Dismiss Wallet", duration: 3.0, position: .center, title: "Shake Mobile", image: gifimage, style: style, completion: nil)
         }
     }
