@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-class WalletViewModel: ListBaseViewModel {
-
+class WalletViewModel {
     var tableViewDelegate: TableViewDelegate?
     var tableViewDataSource: TableViewDataSource?
     lazy var sections: [ListSection] = []
@@ -17,7 +16,7 @@ class WalletViewModel: ListBaseViewModel {
     private var wallets: WalletsGroup
 
     lazy var navigationBarDelegate = NavigationBarDelegate()
-    
+
     init(dataProvider: DataProviderInterface) {
         do {
             let collections = try dataProvider.getCollections()
@@ -26,8 +25,6 @@ class WalletViewModel: ListBaseViewModel {
         } catch let error {
             fatalError(error.localizedDescription)
         }
-
-        super.init()
         prepareModels()
         sections = prepareTableViewSections(category: wallets)
         setupTableViewDelgate()
@@ -66,7 +63,7 @@ extension WalletViewModel: ListViewModelInterface {
     }
 
     var barButtonItem: UIBarButtonItem? {
-        UIBarButtonItem(title: "Dismiss", image: nil, target: self, action: #selector(backAction), position: .left)
+        UIBarButtonItem(title: "Dismiss", target: self, action: #selector(backAction), position: .left)
     }
     
     func setupTableViewDataSource() {

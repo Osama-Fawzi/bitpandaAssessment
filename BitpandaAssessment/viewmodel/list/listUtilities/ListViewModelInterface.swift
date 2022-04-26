@@ -86,7 +86,6 @@ extension ListViewModelInterface {
         Mirror(reflecting: category).children.compactMap { child -> ListSection? in
             if let asset = child.value as? [ItemInterface],
                let type = asset.first?.type {
-
                 let viewModels = asset.map({ item -> ItemCellViewModel in
                     ItemCellViewModel(item: item)
                 })

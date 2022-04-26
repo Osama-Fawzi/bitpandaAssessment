@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-class AssetViewModel: ListBaseViewModel {
-
+class AssetViewModel {
     var tableViewDelegate: TableViewDelegate?
     var tableViewDataSource: TableViewDataSource?
     lazy var sections: [ListSection] = []
@@ -23,8 +22,6 @@ class AssetViewModel: ListBaseViewModel {
         } catch let error {
             fatalError(error.localizedDescription)
         }
-
-        super.init()
         prepareModels()
         sections = prepareTableViewSections(category: assets)
         setupTableViewDelgate()
@@ -50,7 +47,7 @@ extension AssetViewModel: ListViewModelInterface {
     }
 
     var barButtonItem: UIBarButtonItem? {
-        UIBarButtonItem(title: nil, image: UIImage(named: "wallet"), target: self, action: #selector(showWallet), position: .right)
+        UIBarButtonItem(image: UIImage(named: "wallet"), target: self, action: #selector(showWallet), position: .right)
     }
     
     func setupTableViewDataSource() {

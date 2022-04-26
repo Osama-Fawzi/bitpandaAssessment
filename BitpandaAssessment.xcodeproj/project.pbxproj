@@ -130,7 +130,6 @@
 				4A85C8C52813C68900961E76 /* viewmodel */,
 				4A85C8C42813C68300961E76 /* view */,
 				4A85C8C12813C53D00961E76 /* application */,
-				4A85C8B72813AFCF00961E76 /* LaunchScreen.storyboard */,
 			);
 			path = BitpandaAssessment;
 			sourceTree = "<group>";
@@ -147,6 +146,7 @@
 		4A85C8C42813C68300961E76 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4A85C8B72813AFCF00961E76 /* LaunchScreen.storyboard */,
 				4A85C8FD28156F7D00961E76 /* cell */,
 				4A85C8CF2813DAB000961E76 /* list */,
 				4A85C8C62813C6A900961E76 /* splash */,
@@ -260,12 +260,8 @@
 		4A85C8F428147C8100961E76 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				4A85C8E3281453F900961E76 /* UIColor+system.swift */,
 				4A85C8F628147CDA00961E76 /* Helper.swift */,
-				4A85C8F8281485B000961E76 /* String+Currancy.swift */,
-				4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */,
-				4AF7456528172208007769C5 /* UIImage+GIF.swift */,
-				4AF7457928179788007769C5 /* UIBarButtonITem+Position.swift */,
+				4AF7457B2817A59D007769C5 /* extensions */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -322,6 +318,18 @@
 				4AF7457328175EF9007769C5 /* shake_white.gif */,
 			);
 			path = gif;
+			sourceTree = "<group>";
+		};
+		4AF7457B2817A59D007769C5 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A85C8E3281453F900961E76 /* UIColor+system.swift */,
+				4A85C8F8281485B000961E76 /* String+Currancy.swift */,
+				4A85C9172815BFB800961E76 /* UIImage+sd_webImage.swift */,
+				4AF7456528172208007769C5 /* UIImage+GIF.swift */,
+				4AF7457928179788007769C5 /* UIBarButtonITem+Position.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		C7CDF4A577F50BB1BAC115B3 /* Pods */ = {

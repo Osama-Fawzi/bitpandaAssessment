@@ -28,7 +28,11 @@ typealias Collections = Response.Data.Attributes
 
 struct Response: Codable {
 
+    let data:Data
+
     struct Data: Codable {
+
+        let attributes: Data.Attributes
 
         struct Attributes: Codable {
             var assetGroup = AssetsGroup()
@@ -62,11 +66,7 @@ struct Response: Codable {
 
             }
         }
-
-        let attributes: Data.Attributes
     }
-
-    let data:Data
 }
 
 

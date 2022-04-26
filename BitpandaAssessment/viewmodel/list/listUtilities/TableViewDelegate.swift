@@ -9,12 +9,10 @@ import Foundation
 import UIKit
 
 class TableViewDelegate: NSObject {
-    
     override init() {
         super.init()
     }
 }
 
 extension TableViewDelegate:  UITableViewDelegate {
-
 }

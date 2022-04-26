@@ -18,7 +18,6 @@ protocol ItemCellViewModelInterface {
 }
 
 class ItemCellViewModel: ItemCellViewModelInterface {
-
     var item: ItemInterface
     var icon: String
     var title: String

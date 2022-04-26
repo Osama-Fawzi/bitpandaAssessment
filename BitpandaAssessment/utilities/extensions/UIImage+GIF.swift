@@ -6,14 +6,6 @@
 //
 
 import Foundation
-//
-//  iOSDevCenters+GIF.swift
-//  GIF-Swift
-//
-//  Created by iOSDevCenters on 11/12/15.
-//  Copyright © 2016 iOSDevCenters. All rights reserved.
-//
-
 import UIKit
 import ImageIO
 
@@ -27,8 +19,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return false
   }
 }
-
-
 
 extension UIImage {
     public class func gifImageWithData(_ data: Data) -> UIImage? {
@@ -87,10 +77,6 @@ extension UIImage {
         }
 
         delay = delayObject as! Double
-
-//        if delay < 0.1 {
-//            delay = 0.1
-//        }
 
         return delay
     }

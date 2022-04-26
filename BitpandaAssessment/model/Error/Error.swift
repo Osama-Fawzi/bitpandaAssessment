@@ -8,7 +8,6 @@
 import Foundation
 
 struct Error: Swift.Error {
-
     var message: String {
         self._message ?? self.error?.localizedDescription ?? self.underlyingError?.localizedDescription ?? "Unknown message"
     }
@@ -62,7 +61,6 @@ struct Error: Swift.Error {
                   line: line
         )
     }
-
 }
 
 extension Error: LocalizedError {
