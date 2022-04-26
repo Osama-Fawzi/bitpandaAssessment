@@ -10,9 +10,14 @@ import UIKit
 
 class WalletViewModel: ListBaseViewModel {
 
+    var tableViewDelegate: TableViewDelegate?
+    var tableViewDataSource: TableViewDataSource?
+    lazy var sections: [ListSection] = []
     private var assets: AssetsGroup
     private var wallets: WalletsGroup
 
+    lazy var navigationBarDelegate = NavigationBarDelegate()
+    
     init(dataProvider: DataProviderInterface) {
         do {
             let collections = try dataProvider.getCollections()
@@ -24,7 +29,7 @@ class WalletViewModel: ListBaseViewModel {
 
         super.init()
         prepareModels()
-        prepareTableViewSections(category: wallets)
+        sections = prepareTableViewSections(category: wallets)
         setupTableViewDelgate()
         setupTableViewDataSource()
     }
@@ -56,25 +61,14 @@ class WalletViewModel: ListBaseViewModel {
 }
 
 extension WalletViewModel: ListViewModelInterface {
-
-    var shouldToast: Bool {
-        return false
+    var title: String {
+        "Wallet"
     }
 
-    func setupNavigationItem() -> [UINavigationItem] {
-        let backAction = #selector(backAction)
-        let backButton = UIBarButtonItem(title: "Dismiss",
-                                         style: .plain,
-                                         target: self,
-                                         action: backAction)
-        backButton.tintColor = UIColor.systemBlack
-
-        let navigationItem = UINavigationItem(title: "Wallet")
-        navigationItem.leftBarButtonItems = [backButton]
-
-        return [navigationItem]
+    var barButtonItem: UIBarButtonItem? {
+        UIBarButtonItem(title: "Dismiss", image: nil, target: self, action: #selector(backAction), position: .left)
     }
-
+    
     func setupTableViewDataSource() {
         tableViewDataSource = TableViewDataSource(sections: sections)
     }

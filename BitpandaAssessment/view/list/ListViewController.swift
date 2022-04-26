@@ -16,7 +16,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
 
-    lazy var filterDropDown: DropDown? = nil
+    var filterDropDown: DropDown?
     lazy var generator = UINotificationFeedbackGenerator()
 
     override func viewDidLoad() {
@@ -24,8 +24,13 @@ class ListViewController: UIViewController {
 
         toastNotification()
         setupNavigationBar()
-        setupFilterDropDown()
         setupTableView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupFilterDropDown()
     }
     
     init(viewModel: ListViewModelInterface) {
@@ -56,7 +61,7 @@ class ListViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationBar.delegate = viewModel?.navigationBarDelegate
-        navigationBar.items = viewModel?.navigationItem
+        navigationBar.items = setupNavigationItem()
     }
     
     private func setupTableView() {
@@ -69,17 +74,39 @@ class ListViewController: UIViewController {
 
 }
 
-// MARK: - DropDown Handling
+// MARK: - Navigation Bar Items
 extension ListViewController {
+    func setupNavigationItem() -> [UINavigationItem] {
+        guard let viewModel = viewModel,
+              let barButtonItem = viewModel.barButtonItem
+        else { return [] }
+        
+        barButtonItem.tintColor = UIColor.systemBlack
 
+        let navigationItem = UINavigationItem(title: viewModel.title)
+
+        if barButtonItem.position.isLeft {
+            navigationItem.leftBarButtonItem = barButtonItem
+        } else if barButtonItem.position.isRight {
+            navigationItem.rightBarButtonItem = barButtonItem
+        }
+
+        return [navigationItem]
+    }
+}
+
+// MARK: - Filter Handling
+extension ListViewController {
     private func setupFilterDropDown() {
         guard let viewModel = viewModel,
-              viewModel.hasFilter
+              viewModel.filterState.isExist,
+              filterDropDown == nil
         else { return }
 
-        let filterBtn = createNavBarItem()
+        let filterBtn = createNavBarItem(position: viewModel.filterState)
 
         filterDropDown = DropDown()
+        filterDropDown?.dismissMode = .automatic
         filterDropDown?.textColor = .systemBlack!
         filterDropDown?.backgroundColor = .systemWhite
         filterDropDown?.anchorView = filterBtn
@@ -94,7 +121,7 @@ extension ListViewController {
         filterDropDown?.multiSelectionAction = filterSelectionAction
     }
 
-    func createNavBarItem() -> UIBarButtonItem {
+    func createNavBarItem(position: Position) -> UIBarButtonItem {
         let filterButton = UIBarButtonItem(image: UIImage(named: "filter"),
                                            style: .plain,
                                            target: self,
@@ -103,10 +130,18 @@ extension ListViewController {
         filterButton.tintColor = UIColor.systemBlack
 
         if let navigationItem = navigationBar.items?.first {
-            navigationItem.leftBarButtonItem = filterButton
+            if position.isRight {
+                navigationItem.rightBarButtonItem = filterButton
+            } else if position.isLeft {
+                navigationItem.leftBarButtonItem = filterButton
+            }
         } else {
             let navigationItem = UINavigationItem()
-            navigationItem.leftBarButtonItem = filterButton
+            if position.isRight {
+            navigationItem.rightBarButtonItem = filterButton
+            } else if position.isLeft {
+                navigationItem.leftBarButtonItem = filterButton
+            }
             navigationBar.items = [navigationItem]
         }
 
@@ -130,7 +165,6 @@ extension ListViewController {
 
 // MARK: - Motion Handling
 extension ListViewController {
-
     override func becomeFirstResponder() -> Bool {
         return true
     }
@@ -160,7 +194,6 @@ extension ListViewController {
 
 // MARK: - Happtic Effect
 extension ListViewController {
-
     typealias FeedBackType =  UINotificationFeedbackGenerator.FeedbackType
 
     enum HapticType {

@@ -66,9 +66,7 @@ struct Error: Swift.Error {
 }
 
 extension Error: LocalizedError {
-
     var errorDescription: String? {
         self.message
     }
-
 }

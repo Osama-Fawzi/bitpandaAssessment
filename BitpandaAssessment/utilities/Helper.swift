@@ -20,12 +20,11 @@ struct Helper {
     }
 
     func sort<T: ItemInterface>(collection:[T], isAscending: Bool = false) -> [T] {
-       return collection.sorted { lhs, rhs in
+        return collection.sorted { lhs, rhs in
             if let balance1 = Double(lhs.number ?? ""),
                let balance2 = Double(rhs.number ?? "") {
                 return isAscending ? balance1 < balance2 : balance1 > balance2
             }
-
             return false
         }
     }

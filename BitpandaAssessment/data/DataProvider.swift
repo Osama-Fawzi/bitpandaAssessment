@@ -19,7 +19,6 @@ class DataProvider {
 }
 
 extension DataProvider: DataProviderInterface {
-
     enum DecodingError {
         case fileNotFound
         case codingKeys
@@ -59,7 +58,6 @@ extension DataProvider: DataProviderInterface {
 }
 
 extension DataProvider.DecodingError: LocalizedError {
-
     var errorDescription: String? {
         switch self {
         case .codingKeys:
@@ -75,5 +73,4 @@ extension DataProvider.DecodingError: LocalizedError {
             return "Could not find file at given path"
         }
     }
-
 }

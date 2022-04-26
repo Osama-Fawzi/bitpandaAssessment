@@ -17,7 +17,6 @@ class TableViewDataSource: NSObject {
 }
 
 extension TableViewDataSource: UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -37,6 +36,4 @@ extension TableViewDataSource: UITableViewDataSource {
         }
         return UITableViewCell()
     }
-
-
 }

@@ -10,7 +10,12 @@ import UIKit
 
 class AssetViewModel: ListBaseViewModel {
 
+    var tableViewDelegate: TableViewDelegate?
+    var tableViewDataSource: TableViewDataSource?
+    lazy var sections: [ListSection] = []
     private var assets: AssetsGroup
+
+    lazy var navigationBarDelegate = NavigationBarDelegate()
 
     init(dataProvider: DataProviderInterface) {
         do {
@@ -21,7 +26,7 @@ class AssetViewModel: ListBaseViewModel {
 
         super.init()
         prepareModels()
-        prepareTableViewSections(category: assets)
+        sections = prepareTableViewSections(category: assets)
         setupTableViewDelgate()
         setupTableViewDataSource()
     }
@@ -32,37 +37,20 @@ class AssetViewModel: ListBaseViewModel {
 }
 
 extension AssetViewModel: ListViewModelInterface {
+    var title: String {
+        return "Assets"
+    }
 
     var shouldToast: Bool {
         return true
     }
 
-    var hasFilter: Bool {
-        return true
+    var filterState: Position {
+        return .left
     }
 
-    func filterDidChange(indices: [Int], options: [String]) {
-        guard !options.isEmpty else {
-            tableViewDataSource?.sections = sections
-            return
-        }
-
-        let filteredSections = self.sections.filter({options.contains($0.type.rawValue)})
-        self.tableViewDataSource?.sections = filteredSections
-    }
-
-    func setupNavigationItem() -> [UINavigationItem] {
-        let walletAction = #selector(showWallet)
-        let walletButton = UIBarButtonItem(image: UIImage(named: "wallet"),
-                                           style: .plain,
-                                           target: self,
-                                           action: walletAction)
-        walletButton.tintColor = UIColor.systemBlack
-
-        let navigationItem = UINavigationItem(title: "Assets")
-        navigationItem.rightBarButtonItems = [walletButton]
-
-        return [navigationItem]
+    var barButtonItem: UIBarButtonItem? {
+        UIBarButtonItem(title: nil, image: UIImage(named: "wallet"), target: self, action: #selector(showWallet), position: .right)
     }
     
     func setupTableViewDataSource() {
