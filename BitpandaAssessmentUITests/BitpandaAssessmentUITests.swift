@@ -36,6 +36,8 @@ class BitpandaAssessmentUITests: XCTestCase {
         XCTAssertTrue(assetsNavigationBar.exists)
         XCTAssertTrue(walletItem.exists)
         XCTAssertTrue(filterItem.exists)
+        XCTAssertFalse(walletNavigationBar.exists)
+        XCTAssertFalse(dismissItem.exists)
 
         filterItem.tap()
         XCTAssertTrue(filterOption1.exists)
@@ -68,14 +70,54 @@ class BitpandaAssessmentUITests: XCTestCase {
         XCTAssertTrue(walletNavigationBar.exists)
         XCTAssertTrue(dismissItem.exists)
 
+
         dismissItem.tap()
         XCTAssertTrue(assetsNavigationBar.exists)
         XCTAssertTrue(walletItem.exists)
         XCTAssertTrue(filterItem.exists)
+        XCTAssertFalse(walletNavigationBar.exists)
+        XCTAssertFalse(dismissItem.exists)
 
         filterItem.tap()
         XCTAssertTrue(filterOption1.exists)
         XCTAssertTrue(filterOption2.exists)
         XCTAssertTrue(filterOption3.exists)
+    }
+
+    func testFilterSections() {
+        app.launchEnvironment["SKIP_SPLASH_TO"] = "Asset"
+        app.launch()
+
+        let assetsNavigationBar = app.navigationBars["Assets"]
+        let filterItem = assetsNavigationBar.buttons["filter"]
+
+        let filterCryptocoin = app.tables.staticTexts["cryptocoin"]
+        let filterCommodity = app.tables.staticTexts["commodity"]
+        let filterFiat = app.tables.staticTexts["fiat"]
+
+        let sectionCryptocoin =  XCUIApplication().tables.staticTexts["CRYPTOCOIN"]
+        let sectionCommodity =  XCUIApplication().tables.staticTexts["COMMODITY"]
+        let sectionFiat =  XCUIApplication().tables.staticTexts["FIAT"]
+
+        XCTAssertTrue(sectionCryptocoin.exists)
+        XCTAssertTrue(sectionCommodity.exists)
+        XCTAssertTrue(sectionFiat.exists)
+
+        filterItem.tap()
+
+        filterCryptocoin.tap()
+        XCTAssertTrue(sectionCryptocoin.exists)
+        XCTAssertFalse(sectionCommodity.exists)
+        XCTAssertFalse(sectionFiat.exists)
+
+        filterCommodity.tap()
+        XCTAssertTrue(sectionCryptocoin.exists)
+        XCTAssertTrue(sectionCommodity.exists)
+        XCTAssertFalse(sectionFiat.exists)
+
+        filterFiat.tap()
+        XCTAssertTrue(sectionCryptocoin.exists)
+        XCTAssertTrue(sectionCommodity.exists)
+        XCTAssertTrue(sectionFiat.exists)
     }
 }

@@ -2,7 +2,7 @@
 # platform :ios, '9.0'
 
 def BitpandPods
-  pod 'SwiftLint'
+#  pod 'SwiftLint'
   pod 'DropDown'
   pod 'SDWebImage'
   pod 'SDWebImageSVGCoder'
