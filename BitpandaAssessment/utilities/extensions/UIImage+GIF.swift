@@ -113,7 +113,7 @@ extension UIImage {
         }
     }
 
-    class func gcdForArray(_ array: Array<Int>) -> Int {
+    class func gcdForArray(_ array: [Int]) -> Int {
         if array.isEmpty {
             return 1
         }

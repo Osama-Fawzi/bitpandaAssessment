@@ -16,8 +16,8 @@ class CryptocoinWallet: Codable {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey:.id)
-        attributes = try container.decode(Attributes.self, forKey:.attributes)
+        id = try container.decode(String.self, forKey: .id)
+        attributes = try container.decode(Attributes.self, forKey: .attributes)
     }
 
     class Attributes: Codable {
@@ -40,12 +40,12 @@ class CryptocoinWallet: Codable {
 
         required init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            cryptocoinID = try container.decode(String.self, forKey:.cryptocoinID)
-            name = try container.decode(String.self, forKey:.name)
-            balance = try container.decode(String.self, forKey:.balance)
-            symbol = try container.decode(String.self, forKey:.symbol)
-            isDeleted = try container.decode(Bool.self, forKey:.isDeleted)
-            isDefault = try container.decode(Bool.self, forKey:.isDefault)
+            cryptocoinID = try container.decode(String.self, forKey: .cryptocoinID)
+            name = try container.decode(String.self, forKey: .name)
+            balance = try container.decode(String.self, forKey: .balance)
+            symbol = try container.decode(String.self, forKey: .symbol)
+            isDeleted = try container.decode(Bool.self, forKey: .isDeleted)
+            isDefault = try container.decode(Bool.self, forKey: .isDefault)
         }
     }
 }

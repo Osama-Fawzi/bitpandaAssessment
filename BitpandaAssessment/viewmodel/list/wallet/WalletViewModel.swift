@@ -63,7 +63,10 @@ extension WalletViewModel: ListViewModelInterface {
     }
 
     var barButtonItem: UIBarButtonItem? {
-        UIBarButtonItem(title: "Dismiss", target: self, action: #selector(backAction), position: .left)
+        UIBarButtonItem(title: "Dismiss",
+                        target: self,
+                        action: #selector(backAction),
+                        position: .left)
     }
     
     func setupTableViewDataSource() {

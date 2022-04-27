@@ -17,4 +17,3 @@ extension UIImageView: ImageViewLoaderInterface {
             self.sd_setImage(with: url, completed: completed)
     }
 }
-

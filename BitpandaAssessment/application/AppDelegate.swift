@@ -9,7 +9,6 @@ import UIKit
 import SDWebImage
 import SDWebImageSVGCoder
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

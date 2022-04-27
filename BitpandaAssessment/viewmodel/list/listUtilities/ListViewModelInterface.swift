@@ -45,7 +45,7 @@ protocol ListViewModelInterface {
     var tableViewDelegate: TableViewDelegate? { get }
     var tableViewDataSource: TableViewDataSource? { get }
     var sections: [ListSection] { get set }
-    var navigationBarDelegate: NavigationBarDelegate  { get }
+    var navigationBarDelegate: NavigationBarDelegate { get }
     var filterState: Position { get }
     var barButtonItem: UIBarButtonItem? { get }
 

@@ -29,7 +29,7 @@ typealias Collections = Response.Data.Attributes
 
 struct Response: Codable {
 
-    let data:Data
+    let data: Data
 
     struct Data: Codable {
 
@@ -41,18 +41,18 @@ struct Response: Codable {
 
             enum CodingKeys: String, CodingKey {
                 case cryptocoins, commodities, fiats
-                case wallets, commodity_wallets, fiatwallets
+                case wallets, commoditywallets = "commodity_wallets", fiatwallets
             }
 
             init(from decoder: Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
-                assetGroup.cryptocoins = try container.decode([Cryptocoin].self, forKey:.cryptocoins)
-                assetGroup.commodities = try container.decode([Commodity].self, forKey:.commodities)
-                assetGroup.fiats = try container.decode([Fiat].self, forKey:.fiats)
+                assetGroup.cryptocoins = try container.decode([Cryptocoin].self, forKey: .cryptocoins)
+                assetGroup.commodities = try container.decode([Commodity].self, forKey: .commodities)
+                assetGroup.fiats = try container.decode([Fiat].self, forKey: .fiats)
 
-                walletGroup.cryptocoinWallets = try container.decode([CryptocoinWallet].self, forKey:.wallets)
-                walletGroup.commodityWallets = try container.decode([CommodityWallet].self, forKey:.commodity_wallets)
-                walletGroup.fiatWallets = try container.decode([FiatWallet].self, forKey:.fiatwallets)
+                walletGroup.cryptocoinWallets = try container.decode([CryptocoinWallet].self, forKey: .wallets)
+                walletGroup.commodityWallets = try container.decode([CommodityWallet].self, forKey: .commoditywallets)
+                walletGroup.fiatWallets = try container.decode([FiatWallet].self, forKey: .fiatwallets)
             }
 
             func encode(to encoder: Encoder) throws {
@@ -62,14 +62,13 @@ struct Response: Codable {
                 try container.encode(assetGroup.fiats, forKey: .fiats)
 
                 try container.encode(walletGroup.cryptocoinWallets, forKey: .wallets)
-                try container.encode(walletGroup.commodityWallets, forKey: .commodity_wallets)
+                try container.encode(walletGroup.commodityWallets, forKey: .commoditywallets)
                 try container.encode(walletGroup.fiatWallets, forKey: .fiatwallets)
 
             }
         }
     }
 }
-
 
 class AssetsGroup: Codable {
     var cryptocoins = [Cryptocoin]()

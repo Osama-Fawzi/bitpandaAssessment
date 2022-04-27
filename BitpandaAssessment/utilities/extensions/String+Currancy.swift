@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    func toCurrancy(precision: Int, currencyCode: String = "EUR", currencySymbol:String = "EUR") -> String {
+    func toCurrancy(precision: Int, currencyCode: String = "EUR", currencySymbol: String = "EUR") -> String {
         let nsnumberValue = NSNumber(value: Double(self) ?? 0)
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = Locale.current

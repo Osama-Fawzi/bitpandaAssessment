@@ -47,7 +47,10 @@ extension AssetViewModel: ListViewModelInterface {
     }
 
     var barButtonItem: UIBarButtonItem? {
-        UIBarButtonItem(image: UIImage(named: "wallet"), target: self, action: #selector(showWallet), position: .right)
+        UIBarButtonItem(image: UIImage(named: "wallet"),
+                        target: self,
+                        action: #selector(showWallet),
+                        position: .right)
     }
     
     func setupTableViewDataSource() {

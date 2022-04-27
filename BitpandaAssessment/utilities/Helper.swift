@@ -19,7 +19,7 @@ struct Helper {
         return false
     }
 
-    func sort<T: ItemInterface>(collection:[T], isAscending: Bool = false) -> [T] {
+    func sort<T: ItemInterface>(collection: [T], isAscending: Bool = false) -> [T] {
         return collection.sorted { lhs, rhs in
                 return isAscending ? lhs.numberValue < rhs.numberValue : lhs.numberValue > rhs.numberValue
         }

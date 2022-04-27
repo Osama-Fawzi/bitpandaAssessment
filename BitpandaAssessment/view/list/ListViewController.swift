@@ -55,7 +55,10 @@ class ListViewController: UIViewController {
         style.messageColor = .systemBlack!
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
-            view.makeToast("Show/Dismiss Wallet", duration: 3.0, position: .center, title: "Shake Mobile", image: gifimage, style: style, completion: nil)
+            view.makeToast("Show/Dismiss Wallet",
+                           duration: 3.0, position: .center,
+                           title: "Shake Mobile", image: gifimage,
+                           style: style, completion: nil)
         }
     }
     
@@ -151,7 +154,7 @@ extension ListViewController {
 // MARK: - Filter Actions
     @objc
     func filterAction() {
-        let animations: (()->Void) = { [weak self] in
+        let animations: (() -> Void) = { [weak self] in
             self?.filterDropDown?.show()
         }
 

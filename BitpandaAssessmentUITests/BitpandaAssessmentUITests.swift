@@ -32,7 +32,6 @@ class BitpandaAssessmentUITests: XCTestCase {
         let filterOption2 = app.tables.staticTexts["commodity"]
         let filterOption3 = app.tables.staticTexts["fiat"]
 
-
         XCTAssertTrue(assetsNavigationBar.exists)
         XCTAssertTrue(walletItem.exists)
         XCTAssertTrue(filterItem.exists)
@@ -69,7 +68,6 @@ class BitpandaAssessmentUITests: XCTestCase {
 
         XCTAssertTrue(walletNavigationBar.exists)
         XCTAssertTrue(dismissItem.exists)
-
 
         dismissItem.tap()
         XCTAssertTrue(assetsNavigationBar.exists)

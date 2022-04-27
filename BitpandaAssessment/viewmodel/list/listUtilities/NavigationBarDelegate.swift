@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class NavigationBarDelegate: NSObject {
-    
     private var barPosition: UIBarPosition
     
     init(barPosition: UIBarPosition = .topAttached) {

@@ -22,12 +22,12 @@ extension UIBarButtonItem {
 }
 
 extension UIBarButtonItem {
-    convenience init(image: UIImage?, target: Any?, action:Selector?, position: Position) {
+    convenience init(image: UIImage?, target: Any?, action: Selector?, position: Position) {
         self.init(image: image, style: .plain, target: target, action: action)
         self.position = position
    }
 
-    convenience init(title: String?, target: Any?, action:Selector?, position: Position) {
+    convenience init(title: String?, target: Any?, action: Selector?, position: Position) {
         self.init(title: title, style: .plain, target: target, action: action)
         self.position = position
    }

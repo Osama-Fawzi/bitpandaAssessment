@@ -16,8 +16,8 @@ class FiatWallet: Codable {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey:.id)
-        attributes = try container.decode(Attributes.self, forKey:.attributes)
+        id = try container.decode(String.self, forKey: .id)
+        attributes = try container.decode(Attributes.self, forKey: .attributes)
     }
 
     class Attributes: Codable {

@@ -14,5 +14,5 @@ class TableViewDelegate: NSObject {
     }
 }
 
-extension TableViewDelegate:  UITableViewDelegate {
+extension TableViewDelegate: UITableViewDelegate {
 }

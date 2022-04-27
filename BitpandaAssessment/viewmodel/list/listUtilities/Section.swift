@@ -21,6 +21,4 @@ extension ListSection: Equatable {
     static func == (lhs: ListSection, rhs: ListSection) -> Bool {
         (lhs.type == rhs.type && lhs.items.count == rhs.items.count)
     }
-
-
 }

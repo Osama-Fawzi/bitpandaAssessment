@@ -20,8 +20,8 @@ class Cryptocoin: Codable {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey:.id)
-        attributes = try container.decode(Attributes.self, forKey:.attributes)
+        id = try container.decode(String.self, forKey: .id)
+        attributes = try container.decode(Attributes.self, forKey: .attributes)
     }
 
     class Attributes: Codable {
@@ -43,12 +43,12 @@ class Cryptocoin: Codable {
 
         required init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            name = try container.decode(String.self, forKey:.name)
-            logo = try container.decode(String.self, forKey:.logo)
-            logoDark = try container.decode(String.self, forKey:.logoDark)
-            symbol = try container.decode(String.self, forKey:.symbol)
-            avgPrice = try container.decode(String.self, forKey:.avgPrice)
-            precisionForFiatPrice = try container.decode(Int.self, forKey:.precisionForFiatPrice)
+            name = try container.decode(String.self, forKey: .name)
+            logo = try container.decode(String.self, forKey: .logo)
+            logoDark = try container.decode(String.self, forKey: .logoDark)
+            symbol = try container.decode(String.self, forKey: .symbol)
+            avgPrice = try container.decode(String.self, forKey: .avgPrice)
+            precisionForFiatPrice = try container.decode(Int.self, forKey: .precisionForFiatPrice)
             price = avgPrice.toCurrancy(precision: precisionForFiatPrice)
         }
     }

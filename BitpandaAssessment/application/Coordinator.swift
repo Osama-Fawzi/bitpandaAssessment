@@ -26,31 +26,31 @@ class Coordinator {
     }
     
     func showIntro() {
-        let vc = SplashViewController()
-        setRootViewController(vc)
+        let viewController = SplashViewController()
+        setRootViewController(viewController)
     }
 
     func showAsset(isRoot: Bool = true) {
-        let dp = DataProvider()
-        let vm = AssetViewModel(dataProvider: dp)
-        let vc = ListViewController(viewModel: vm)
+        let dataProvider = DataProvider()
+        let viewModel = AssetViewModel(dataProvider: dataProvider)
+        let viewController = ListViewController(viewModel: viewModel)
 
         if isRoot {
-            setRootViewController(vc, animated: true)
+            setRootViewController(viewController, animated: true)
         } else {
-            show(vc, into: topViewController()!)
+            show(viewController, into: topViewController()!)
         }
     }
 
     func showWallet(isRoot: Bool = false) {
-        let dp = DataProvider()
-        let vm = WalletViewModel(dataProvider: dp)
-        let vc = ListViewController(viewModel: vm)
+        let dataProvider = DataProvider()
+        let viewModel = WalletViewModel(dataProvider: dataProvider)
+        let viewController = ListViewController(viewModel: viewModel)
 
         if isRoot {
-            setRootViewController(vc, animated: true)
+            setRootViewController(viewController, animated: true)
         } else {
-            show(vc, into: topViewController()!)
+            show(viewController, into: topViewController()!)
         }
     }
     
@@ -105,7 +105,6 @@ class Coordinator {
                     UIView.transition(with: window!, duration: duration, options: options, animations: {}, completion: nil)
                 }
             }
-        
     }
     
     func topViewController(base: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
